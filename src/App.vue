@@ -1,26 +1,32 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { defineCustomElement } from 'vue'
+import SocialCard from "@/components/SocialCard";
 
-export default {
+const SocialCardElement = defineCustomElement({
   name: 'App',
   components: {
-    HelloWorld
+    SocialCard
+  },
+  template: '<SocialCard :card=shiba_card></SocialCard>',
+  data() {
+    return {
+      shiba_card: {
+        id: 1,
+        name: 'Shiba Inu',
+        description: 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.\n' +
+            '      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally\n' +
+            '      bred for hunting.',
+        image: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
+      },
+    }
   }
-}
-</script>
+});
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+customElements.define('social-card-element', SocialCardElement)
+
+document.body.appendChild(
+  new SocialCardElement({
+    // initial props (optional)
+  })
+)
+</script>
