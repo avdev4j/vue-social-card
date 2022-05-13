@@ -1,4 +1,7 @@
-import { createApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+import { defineCustomElement } from 'vue'
+
+const SocialCardElement = defineCustomElement(App)
+
+customElements.define('social-card-element', SocialCardElement)

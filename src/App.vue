@@ -1,13 +1,10 @@
 <script>
-import { defineCustomElement } from 'vue'
 import SocialCard from "@/components/SocialCard";
 
-const SocialCardElement = defineCustomElement({
-  name: 'App',
+export default {
   components: {
     SocialCard
   },
-  template: '<SocialCard :card=shiba_card></SocialCard>',
   data() {
     return {
       shiba_card: {
@@ -17,16 +14,13 @@ const SocialCardElement = defineCustomElement({
             '      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally\n' +
             '      bred for hunting.',
         image: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
+        image_alt: 'The Shiba Inu image'
       },
     }
   }
-});
-
-customElements.define('social-card-element', SocialCardElement)
-
-document.body.appendChild(
-  new SocialCardElement({
-    // initial props (optional)
-  })
-)
+};
 </script>
+
+<template>
+  <SocialCard :card=shiba_card></SocialCard>
+</template>
