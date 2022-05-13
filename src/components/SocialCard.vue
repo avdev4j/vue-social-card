@@ -1,11 +1,3 @@
-<template>
-		<div class="card">
-			<h2>{{ card.name }}</h2>
-      <span>{{ card.description }}</span>
-			<img :src="card.image" alt="Photo of a Shiba Inu"/>
-		</div>
-</template>
-
 <script>
 export default {
 	props: {
@@ -16,6 +8,14 @@ export default {
 	},
 };
 </script>
+
+<template>
+		<div class="card">
+			<h2>{{ card.name }}</h2>
+      <span>{{ card.description }}</span>
+			<img :src="card.image" :alt="card.image_alt"/>
+		</div>
+</template>
 
 <style>
 .card {
